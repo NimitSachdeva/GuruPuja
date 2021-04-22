@@ -1,41 +1,64 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
-import LoginView from './LoginView'
+import React from 'react';
+import LoginView from './LoginView';
+import SignUp from './SignUp';
+import Welcome from './Welcome';
+import Booking from './Booking';
 import { StyleSheet, Text, Image, ImageBackground, View, SafeAreaView } from 'react-native';
+// import { render } from 'react-dom';
 import * as Font from 'expo-font';
-import { AppLoading } from 'expo';
+// import { AppLoading } from 'expo';
 
 
-export default function App() {
-  useEffect(() => {
-    Font.loadAsync({
-      'opensanscondensed-bold': require('./assets/fonts/OpenSansCondensed-Bold.ttf'),
-      'opensanscondensed-italic': require('./assets/fonts/OpenSansCondensed-LightItalic.ttf'),
-      'opensanscondensed-light': require('./assets/fonts/OpenSansCondensed-Light.ttf')
-      });
-      
-    })
-  
-  const handlePress = () => console.log("Clicked")
-  return (
-    <ImageBackground
-      // blurRadius={4}
-      source={require('./assets/gradient.jpg')} style={styles.image}>
-      <SafeAreaView style={styles.container}>
-        <LoginView></LoginView>
-        <StatusBar style="auto" />
-      </SafeAreaView>
-    </ImageBackground>
-  );
+class App extends React.Component{
+  state = {
+    fontsLoaded: false
+  };
+  async componentDidMount(){
+    await Font.loadAsync({
+        //font1 or 2 can be any name. This'll be used in font-family            
+        'nunitosans-bold': require('./assets/fonts/NunitoSans-Bold.ttf'),
+        'nunitosans-light': require('./assets/fonts/NunitoSans-Light.ttf'),
+        'nunitosans-regular': require('./assets/fonts/NunitoSans-Regular.ttf')
+        });
+        this.setState({fontsLoaded: true});
+    }
+  render(){
+    if(this.state.fontsLoaded)
+    {
+        return (
+      <ImageBackground
+        // blurRadius={4}
+        source={require('./assets/gradient.jpg')} style={styles.image}>
+        <SafeAreaView style={styles.container}>
+          {/* <LoginView></LoginView> */}
+          {/* <SignUp></SignUp> */}
+          {/* <Welcome></Welcome> */}
+          <Booking></Booking>
+          <StatusBar style="auto" />
+        </SafeAreaView>
+      </ImageBackground>
+    );
+    }
+    else
+    {
+      return (
+        <ImageBackground
+          // blurRadius={4}
+          source={require('./assets/gradient.jpg')} style={styles.image}>
+        </ImageBackground>
+      );
+    }
+  }
 }
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
-    fontFamily:'opensanscondensed-bold',
+    fontFamily:'nunitosans-regular',
     flex: 1,
     padding:10,
-    // backgroundColor: 'rgba(0,0,0, 0.6)',
-    // alignItems: 'baseline',
     justifyContent: 'center',
   },
   image: {

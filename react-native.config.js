@@ -3,6 +3,6 @@ module.exports = {
       ios: {},
       android: {},
   },
-  assets: ['./assets/fonts/opensanscondensed-light.ttf']
+  assets: ['./assets/fonts/']
   };
   
