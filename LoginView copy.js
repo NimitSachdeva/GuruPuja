@@ -6,34 +6,28 @@ class LoginView extends React.Component{
   render(){
     return (
       <View style={{flex:1,justifyContent:'center'}}>
-         <View>
-            <ImageBackground source={require('./assets/Gradient-Wallpaper-for-Laptop.jpg')} 
-            style={{
-              flexDirection:'column',
-              paddingTop:100,
-              justifyContent:'center',
-              alignItems:'center',height:350,borderColor:'white',overflow:'hidden',justifyContent:'center',borderBottomLeftRadius:150}} >
-              <Image source={require("./assets/Login.png")} style={{height:100, width:100}}></Image>
+        <View  style={{flexDirection:'row',justifyContent:'center'}, styles.parent}>
+            <ImageBackground source={require('./assets/Gradient-Wallpaper-for-Laptop.jpg')} style={styles.child}>
               <Text style={styles.setFontSize}>LOGIN</Text>
             </ImageBackground>
         </View>
         
-        <View style={{flex: 1,flexDirection:'column', justifyContent:'center',minHeight:350}}>
-          <View style={{alignItems: 'center', marginTop:40}}>
+        <View style={{flex: 1,justifyContent:'center'}}>
+          <View style={{flex:1,alignItems: 'center',marginVertical:30}}>
             <TextInput 
               clearTextOnFocus={true}
               placeholder="User Name"
               placeholderTextColor="#29837F" 
               style={styles.LoginText}/>
           </View>
-          <View style={{flex:1,alignItems: 'center', marginTop:30}}>
+          <View style={{flex:1,alignItems: 'center'}}>
             <TextInput 
               placeholder="Password" 
               placeholderTextColor="#29837F" 
               style={styles.LoginText}/>
           </View>
-          <View style={{flex:2,alignItems: 'center'}}>
-            <TouchableOpacity style={{justifyContent:'center', alignItems:'center', backgroundColor:'#29837F', width:200,padding:10, borderRadius:30 }}>
+          <View style={{ alignItems: 'center'}}>
+            <TouchableOpacity style={{marginTop:40,justifyContent:'center', alignItems:'center', backgroundColor:'#29837F', width:200, height:30, padding:30 }}>
               <Text style={{color:'white', fontSize:20,fontFamily: 'nunitosans-light',}}>Sign In</Text>
             </TouchableOpacity> 
             {/* <TouchableOpacity onPress={() => this.props.navigation.navigate('/SignUp')}>
@@ -50,33 +44,41 @@ class LoginView extends React.Component{
 
 const styles = StyleSheet.create({
   LoginText:{
-    height:50,
     fontSize:20 ,
     fontFamily: 'nunitosans-bold',
     width: 300,
     padding:10
-    ,borderRadius:10, 
+    ,borderRadius:10,   
     backgroundColor:'white' ,
-    shadowColor: "#000",
-    shadowOffset:{
-    width: 10,
-    height: 2,
-    },
-    shadowOpacity: 11.17,
-    shadowRadius: 1.49,
-    elevation: 22,
+    borderColor:"#29837F" ,
+    borderBottomWidth:1,
+    borderTopWidth:1, 
+    borderLeftWidth:1,
+    borderRightWidth:1,
   },
 
   setFontSize: {
-    flexDirection:'row',
-    fontSize: 34,
-    padding:20,
-    textAlignVertical:'bottom',
+    fontSize: 48,
     // fontWeight : 'bold' ,
     // color: '#29837F',
     color:'white',
     fontFamily: 'nunitosans-bold',
     alignItems: 'center'
   },
+  parent : {
+    minHeight:'40%',
+    height : '40%',
+    width : '100%',
+    transform : [ { scaleX : 2 } ],
+    borderBottomStartRadius : 320,
+    // borderBottomEndRadius : 200,
+    overflow : 'hidden',
+  },
+  child : {
+      flex : 1,
+      transform : [ { scaleX : 0.5 } ],
+      alignItems : 'center',
+      justifyContent : 'center'
+  }
 })
 export default LoginView;
