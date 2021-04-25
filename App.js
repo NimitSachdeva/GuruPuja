@@ -1,16 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import 'react-native-gesture-handler';
+// import 'react-native-gesture-handler';
 import React from 'react';
-import LoginView from './LoginView';
-import SignUp from './SignUp';
-import Welcome from './Welcome';
-import Booking from './Booking';
 import { StyleSheet, Text, Image, ImageBackground, View, SafeAreaView } from 'react-native';
-// import { render } from 'react-dom';
+import { render } from 'react-dom';
 import * as Font from 'expo-font';
-import Profile from './Profile';
-import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
+import Profile from './screens/Profile';
+import Navigator from './routes/homeStack';
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 
 // const Stack = createStackNavigator();
 class App extends React.Component{
@@ -32,20 +30,11 @@ class App extends React.Component{
     if(this.state.fontsLoaded)
     {
         return (
-          <NavigationContainer>
-            <ImageBackground
-              // blurRadius={4}
-               style={styles.image}>
-              <SafeAreaView style={styles.container}>
-                {/* <LoginView></LoginView> */}
-                {/* <SignUp></SignUp> */}
-                {/* <Welcome></Welcome> */}
-                {/* <Booking></Booking> */}
-                <Profile></Profile>
-                <StatusBar style="auto" />
-              </SafeAreaView>
-            </ImageBackground>
-          </NavigationContainer>
+          <SafeAreaView style={styles.container}>
+              <StatusBar style="auto" />
+            <Navigator>
+            </Navigator>
+          </SafeAreaView>
       
     );
     }

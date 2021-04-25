@@ -4,16 +4,17 @@ import {StyleSheet, View, Text, TextInput,TouchableOpacity, Image, ImageBackgrou
 
 class SignUp extends React.Component {
   render(){
+    const { navigate } = this.props.navigation;
     return (
       <View style={{flex:1,justifyContent:'center'}}>
         <View>
-            <ImageBackground source={require('./assets/Gradient-Wallpaper-for-Laptop.jpg')} 
+            <ImageBackground source={require('../assets/Gradient-Wallpaper-for-Laptop.jpg')} 
             style={{
               flexDirection:'column',
-              paddingTop:60,
+              paddingTop:20,
               justifyContent:'center',
-              alignItems:'center',height:250,borderColor:'white',overflow:'hidden',justifyContent:'center',borderBottomLeftRadius:110}} >
-              <Image source={require("./assets/Signup.png")} style={{height:100, width:100}}></Image>
+              alignItems:'center',height:230,borderColor:'white',overflow:'hidden',justifyContent:'center',borderBottomLeftRadius:110}} >
+              <Image source={require("../assets/Signup.png")} style={{height:100, width:100}}></Image>
               <Text style={styles.setFontSize}>Sign Up</Text>
             </ImageBackground>
         </View>
@@ -25,34 +26,39 @@ class SignUp extends React.Component {
                   placeholderTextColor="#29837F" 
                   style={styles.LoginText}/>
               </View>
-              <View style={{alignItems: 'center' ,marginTop:20}}>
+              <View style={{alignItems: 'center' ,marginTop:15}}>
               <TextInput 
                   placeholder="Enter your email ID" 
                   placeholderTextColor="#29837F" 
                   style={styles.LoginText}/>
               </View>
-              <View style={{alignItems: 'center',  marginTop:20}}>
+              <View style={{alignItems: 'center',  marginTop:15}}>
               <TextInput 
                   placeholder="Enter the Date of Guru Puja Phase-2" 
                   placeholderTextColor="#29837F" 
                   style={styles.LoginText}/>
               </View>
-              <View style={{alignItems: 'center',  marginTop:20}}>
+              <View style={{alignItems: 'center',  marginTop:15}}>
               <TextInput 
                   placeholder="Enter the Password" 
                   placeholderTextColor="#29837F" 
                   style={styles.LoginText}/>
               </View>
-              <View style={{alignItems: 'center', marginTop:20}}>
+              <View style={{alignItems: 'center', marginTop:15}}>
               <TextInput 
                   placeholder="Confirm the Password" 
                   placeholderTextColor="#29837F" 
                   style={styles.LoginText}/>
               </View>
-              <View style={{ alignItems: 'center', marginTop:40}}>
-              <TouchableOpacity style={{justifyContent:'center', alignItems:'center', backgroundColor:'#29837F', width:200,padding:10, borderRadius:30 }}>
+              <View style={{ alignItems: 'center', marginTop:25}}>
+              <TouchableOpacity onPress={() => navigate('Login')} style={{justifyContent:'center', alignItems:'center', backgroundColor:'#29837F', width:200,padding:10, borderRadius:30 }}>
                   <Text style={{color:'white', fontSize:20,fontFamily: 'nunitosans-light',}}>Sign Up</Text>
               </TouchableOpacity> 
+              <TouchableOpacity onPress={() => navigate('Login')} >
+                <Text style={{marginTop:10,fontSize:18,color: '#29837F', textDecorationStyle:'solid'}}>
+                  Sign In instead
+                </Text>
+              </TouchableOpacity>
               </View>
           </View>
         </View>
@@ -88,7 +94,7 @@ const styles = StyleSheet.create({
     // fontWeight : 'bold' ,
     // color: '#29837F',
     color:'white',
-    fontFamily: 'nunitosans-bold',
+    fontFamily: 'nunitosans-light',
     alignItems: 'center'
   },
 })

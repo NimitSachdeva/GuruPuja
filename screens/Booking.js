@@ -7,7 +7,7 @@ import { TouchableHighlightComponent } from 'react-native';
 import { TouchableNativeFeedback } from 'react-native';
 
 
-const Booking = () => {
+const Booking = ({ navigation }) => {
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   
     const showDatePicker = () => {
@@ -61,23 +61,22 @@ const Booking = () => {
         // console.log(slots); 
     },[] )
     return(
-        <View>
-            <View style={{marginBottom:30, textAlignVertical:'center'}}>
-                <ImageBackground source={require('./assets/Gradient-Wallpaper-for-Laptop.jpg')} 
+        <View style={{flex:1, flexDirection:'column'}}>
+            <View style={{marginBottom:20, textAlignVertical:'center'}}>
+                <ImageBackground source={require('../assets/Gradient-Wallpaper-for-Laptop.jpg')} 
                 style={{
                 flexDirection:'column',
-                paddingTop:10,
                 justifyContent:'center',
-                alignItems:'center',height:250,overflow:'hidden',justifyContent:'center',borderBottomLeftRadius:110}} >
-                <Image source={require("./assets/booking.png")} style={{height:100, width:100}}></Image>
+                alignItems:'center',height:200,overflow:'hidden',justifyContent:'center',borderBottomLeftRadius:110}} >
+                <Image source={require("../assets/booking.png")} style={{height:100, width:100}}></Image>
                 <Text style={styles.setFontSize}>Choose Your Time Slots</Text>
                 </ImageBackground>
             </View>
 
             <View style={{marginBottom:20, width:200,alignSelf:'center',}}>
-                <TouchableOpacity onPress={showDatePicker}>
-                    <Text style={{backgroundColor:'#29837F', padding:10,borderRadius:50,textAlign:'center', color:'white', fontSize:20,fontFamily: 'nunitosans-light',}} >Choose the date</Text>
-                </TouchableOpacity>
+            <TouchableOpacity onPress={showDatePicker}>
+            <Text style={{backgroundColor:'#29837F', padding:10,borderRadius:50,textAlign:'center', color:'white', fontSize:20,fontFamily: 'nunitosans-light',}} >Choose the date</Text>
+            </TouchableOpacity>
             <DateTimePickerModal
                 isVisible={isDatePickerVisible}
                 mode="date"
@@ -86,22 +85,25 @@ const Booking = () => {
             />  
             </View>
 
-            <View style={{flex:0.7,flexDirection:'row',justifyContent:'center',alignItems:'center',flexWrap:'wrap'}}>
+            <ScrollView contentContainerStyle={{justifyContent:'center', alignItems:'center'}} >
+                <View style={{flex:0.7,flexDirection:'row',flexWrap:'wrap'}}>
                 {timeSlots.map((item,index) => (
-                    <TouchableOpacity activeOpacity={.75}>
+                    <TouchableOpacity activeOpacity={0.6}>
                         <Text key="{item}" style={styles.setSlotSize}>{item}
                             {timeSlots[index+1]? ' - ' +timeSlots[index+1]:''}
                             {/* {timeSlots[index+1]} */}
                         </Text>
                     </TouchableOpacity>
                 ))}
+                </View>
                 {/* <Text>8:00 am to 10:00 pm</Text> */}
-            </View>
-            <View style={{flex:2,alignItems: 'center', marginTop:30, marginBottom:40}}>
-                <TouchableOpacity style={{justifyContent:'center', alignItems:'center', backgroundColor:'#29837F', width:200,padding:10, borderRadius:30 }}>
-                 <Text style={{color:'white', fontSize:18,fontFamily: 'nunitosans-light',}}>Save the slots</Text>
+            </ScrollView>
+            <View style={{alignItems: 'center', marginTop:10, marginBottom:10}}>
+                <TouchableOpacity onPress={() => navigation.navigate('Welcome')} style={{justifyContent:'center', alignItems:'center', backgroundColor:'#29837F', width:200,padding:10, borderRadius:30 }}>
+                <Text style={{color:'white', fontSize:18,fontFamily: 'nunitosans-light',}}>Save the slots</Text>
                 </TouchableOpacity>
             </View>
+            
         </View>
         
     );
@@ -109,7 +111,7 @@ const Booking = () => {
 
 const styles= StyleSheet.create({
     setFontSize: {
-        fontSize: 30,
+        fontSize: 28,
         color: 'white',
         fontFamily: 'nunitosans-light',
         textAlign:'center'

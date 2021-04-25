@@ -6,18 +6,19 @@ import {View, Image, StyleSheet,ScrollView, TouchableOpacity } from "react-nativ
 
 class Profile extends React.Component{
     render(){
+        const { navigate } = this.props.navigation;
         return(
             <View style={{flex:1, backgroundColor:'white'}}>
                 <View style={{justifyContent:'center'}}>
-                    <ImageBackground source={require('./assets/Gradient-Wallpaper-for-Laptop.jpg')} 
+                    <ImageBackground source={require('../assets/Gradient-Wallpaper-for-Laptop.jpg')} 
                     style={{ flexDirection:'column',
                     paddingTop:10,
                     marginBottom:40,
                     justifyContent:'center',
-                    alignItems:'center',height:250,overflow:'hidden',justifyContent:'center',borderBottomLeftRadius:110}}>
+                    alignItems:'center',height:200,overflow:'hidden',justifyContent:'center',borderBottomLeftRadius:110}}>
                         {/* <View style={{backgroundColor:'white',marginVertical:60,flexDirection:'row',justifyContent:'center',alignItems:'center', height:120,width:120,padding:40,borderRadius:40 }}>
                         </View> */}
-                        <Image source={require('./assets/profile.png')} style={{ width: 100, height: 100,  }} />
+                        <Image source={require('../assets/profile.png')} style={{ width: 100, height: 100,  }} />
                         <Text style={styles.setFontSize}>Account Info</Text>
                     </ImageBackground>
                 <ScrollView>
@@ -38,8 +39,8 @@ class Profile extends React.Component{
                         <Text style={styles.text}>Password</Text>
                         <TextInput style={styles.textInput}>10/10/2020</TextInput>
                     </View>
-                    <View style={{alignItems: 'center', marginTop:20, marginBottom:60}}>
-                        <TouchableOpacity style={{justifyContent:'center', alignItems:'center', backgroundColor:'#29837F', width:200,padding:10, borderRadius:30 }}>
+                    <View style={{alignItems: 'center', marginTop:10, marginBottom:10}}>
+                        <TouchableOpacity onPress={() => navigate('Welcome')} style={{justifyContent:'center', alignItems:'center', backgroundColor:'#29837F', width:200,padding:10, borderRadius:30 }}>
                             <Text style={{color:'white', fontSize:18,fontFamily: 'nunitosans-light',}}>Save</Text>
                         </TouchableOpacity>
                     </View>
@@ -98,4 +99,4 @@ const styles= StyleSheet.create({
         shadowRadius: 1,
         elevation: 12,
     }
-});      
+});
