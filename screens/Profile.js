@@ -85,7 +85,7 @@ const styles= StyleSheet.create({
         // flexDirection:'row',
         fontSize:15, 
         marginHorizontal:20,
-        borderRadius:30,
+        borderRadius:5,
         // borderColor:'#EFEFEF',
         // borderColor:'black',
         // borderWidth:2,

@@ -90,7 +90,7 @@ const Booking = ({ navigation }) => {
                 {timeSlots.map((item,index) => (
                     <TouchableOpacity activeOpacity={0.6}>
                         <Text key="{item}" style={styles.setSlotSize}>{item}
-                            {timeSlots[index+1]? ' - ' +timeSlots[index+1]:''}
+                            {timeSlots[index+1]? '- ' +timeSlots[index+1]:''}
                             {/* {timeSlots[index+1]} */}
                         </Text>
                     </TouchableOpacity>

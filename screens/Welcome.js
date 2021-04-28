@@ -13,24 +13,36 @@ class Welcome extends React.Component{
                 
             // </ImageBackground>
             <View style={{flex:1}}>
-                <ImageBackground source={require('../assets/Gradient-Wallpaper-for-Laptop.jpg')} 
+                <ImageBackground source={require('../assets/guru_paduka_background.jpg')} 
                 style={{
                 flexDirection:'column',
                 justifyContent:'flex-start',paddingTop:50,
-                alignItems:'center',height:800,borderColor:'white',overflow:'hidden',borderBottomLeftRadius:10, borderBottomRightRadius:10}} >
-                <Image source={require("../assets/welcome.png")} style={{height:250, width:250}}></Image>
-                <Text style={[styles.setFontSize,{fontSize: 48,color: 'white',}]}>Nimit</Text>
-                <View style={{ alignItems: 'center', marginTop:120}}>
-                    <Text style={[styles.setFontSize, {color:'white', fontSize:24}]}>Book the time Slots for Guru Puja</Text>
-                    <TouchableOpacity onPress={() => navigate('Booking')} style={{marginTop:20,justifyContent:'center', alignItems:'center', backgroundColor:'white', width:250,padding:10, borderRadius:5 }}>
-                        <Text style={{color:'#29837F', fontSize:25,fontFamily: 'nunitosans-bold',}}>Click Here</Text>
+                alignItems:'center',height:1000,borderColor:'white',overflow:'hidden',borderBottomLeftRadius:10, borderBottomRightRadius:10}} >
+                <Image source={require("../assets/guru-paduka.png")} style={{height:250, width:250}}></Image>
+                <Text style={[styles.setFontSize,{fontSize: 38,color: 'white',}]}>Welcome Nimit</Text>
+                <View style={{flexDirection:'row', alignItems: 'center', flexWrap:'wrap',justifyContent:'center'}}>
+                    {/* <Text style={[styles.setFontSize, {color:'white', fontSize:24}]}>Book the time Slots for Guru Puja</Text> */}
+                    <TouchableOpacity onPress={() => navigate('Booking')} style={{margin:20,justifyContent:'center', alignItems:'center', width:150,height:150,borderRadius:5}}>
+                        <Image source={require('../assets/booking.png')} style={{height:130, width:130}} />
+                        <Text style={{color:'white', fontSize:15,fontFamily: 'nunitosans-bold',}}>Book Slots</Text>
                     </TouchableOpacity> 
+                    <TouchableOpacity onPress={() => navigate('Profile')} style={{margin:20,justifyContent:'center', alignItems:'center', width:150,height:150,borderRadius:5}}>
+                        <Image source={require('../assets/profile-edit.png')} style={{height:130, width:130}} />
+                        <Text style={{color:'white', fontSize:15,fontFamily: 'nunitosans-bold',}}>Edit Profile</Text>
+                    </TouchableOpacity> 
+                    <TouchableOpacity onPress={() => navigate('Location')} style={{margin:20,justifyContent:'center', alignItems:'center', width:150,height:150,borderRadius:5}}>
+                        <Image source={require('../assets/location.png')} style={{height:130, width:130}} />
+                        <Text style={{color:'white', fontSize:15,fontFamily: 'nunitosans-bold',}}>Our Location</Text>
+                    </TouchableOpacity> 
+                    <TouchableOpacity onPress={() => navigate('Home')} style={{margin:20,justifyContent:'center', alignItems:'center', width:150,height:150,borderRadius:5}}>
+                        <Image source={require('../assets/Log_Out.png')} style={{height:130, width:130}} />
+                        <Text style={{color:'white', fontSize:15,fontFamily: 'nunitosans-bold',}}>Log Out</Text>
+                    </TouchableOpacity> 
+                    
+                    
                 </View>
-                <View style={{marginTop:20}}>
-                    <TouchableOpacity onPress={() => navigate('Home')} >
-                        <Text style={{fontSize:24,color: 'white'}}>Log Out</Text>
-                    </TouchableOpacity>
-                </View>
+                {/* <View style={{marginTop:20}}>
+                </View> */}
                 {/* <View>
                     <TouchableOpacity onPress={() => navigate('Profile')} style={{justifyContent:'flex-end',alignItems:'center',backgroundColor:'white', padding:10,position:'relative', top:50,width:400}}>
                         <Text style={{color:'#5b79eb', fontSize:25,fontFamily: 'nunitosans-bold',}}>Edit Profile</Text>

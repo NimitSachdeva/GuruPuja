@@ -4,6 +4,7 @@ import { createStackNavigator } from "react-navigation-stack";
 import Booking from "../screens/Booking";
 import ForgotPwd from "../screens/forgotpwd";
 import home from "../screens/home";
+import Location from "../screens/location";
 import LoginView from '../screens/LoginView';
 import Profile from "../screens/Profile";
 import SignUp from "../screens/SignUp";
@@ -11,9 +12,9 @@ import Welcome from "../screens/Welcome";
 // import About from '../screens/about';
 
 const screens = {
-    Home: {
-        screen: home
-    },
+    // Home: {
+    //     screen: home
+    // },
     Login: {
         screen: LoginView
     },
@@ -29,6 +30,9 @@ const screens = {
     },
     Welcome: {
         screen: Welcome
+    },
+    Location:{
+        screen: Location
     },
     Booking: {
         screen: Booking
